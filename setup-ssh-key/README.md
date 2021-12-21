@@ -8,13 +8,13 @@
 3. Modify the `path_to_the_key`, `username`, `hostname` to meet your setup.
 
 ```powershell
-cat path_to_the_key | & 'C:\Program Files\Git\usr\bin\ssh.exe' username@hostname "cat >> ~/.ssh/authorized_keys"
+cat path_to_the_key | & 'C:\Program Files\Git\usr\bin\ssh.exe' username@hostname "mkdir ~/.ssh/ && touch ~/.ssh/authorized_keys && cat >> ~/.ssh/authorized_keys"
 ```
 
 If you store the key in the default path, and you didn't change the `username` and the `hostname` for the Raspberry Pi, then your script should look like this:
 
 ```powershell
-cat ~/.ssh/id_rsa.pub | & 'C:\Program Files\Git\usr\bin\ssh.exe' pi@raspberrypi.local "cat >> ~/.ssh/authorized_keys"
+cat ~/.ssh/id_rsa.pub | & 'C:\Program Files\Git\usr\bin\ssh.exe' pi@raspberrypi.local "mkdir ~/.ssh/ && touch ~/.ssh/authorized_keys && cat >> ~/.ssh/authorized_keys"
 ```
 
 4. Copy-paste the modified script into `powershell`, and run it. This will put the ssh key into Raspberry Pi, so you can use it to authenticate the ssh connection from now on.
